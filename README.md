@@ -1,4 +1,1 @@
-# Chain-Code
-<video width="400" autoplay>
-  <source src="chain code 4connect.mp4" type="video/mp4"> 
-</video>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/niV3Ya1IC48/0.jpg)](https://www.youtube.com/watch?v=niV3Ya1IC48)
