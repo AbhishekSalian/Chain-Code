@@ -1,5 +1,7 @@
-clc;clear;xdel(winsid());
-I = imread('C:\Users\Admin\Desktop\chaincodes\binary2.jpg');//input image path
+clc;
+clear;
+xdel(winsid());
+I = imread('C:\Users\Admin\Desktop\chaincodes\images\binary2.jpg');//input image path
 figure,imshow(I);title("original image");
 [M,N] = size(I);
 //binary conversion of image
@@ -91,9 +93,27 @@ for i=1:length(chain_codes)-1
      if chain_codes(i)~=chain_codes(i+1)
           chain_code=[chain_code,chain_codes(i+1)]
       end
-         
 end
 disp(chain_code,"final chain code for the given binary image is:");
 
-
-
+R=zeros(M,N)
+Xr=first_pix(1,1)
+Yr=first_pix(1,2)
+R(Xr,Yr)=255
+for i=1:length(chain_codes)
+    if chain_codes(1,i)==0
+        R(Xr,(Yr+1))=255
+        Yr=Yr+1
+    elseif chain_codes(1,i)==1
+        R((Xr-1),Yr)=255
+        Xr=Xr-1
+    elseif chain_codes(1,i)==2
+        R(Xr,(Yr-1))=255
+        Yr=Yr-1
+    else if chain_codes(1,i)==3
+        R((Xr+1),Yr)=255
+        Xr=Xr+1 
+end
+end
+end
+figure,imshow(uint8(R));title('reconstructed image')
